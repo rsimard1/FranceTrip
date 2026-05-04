@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>South of France — June 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F7F3EC;
+    --warm-white: #FEFCF8;
+    --charcoal: #1C1C1A;
+    --muted: #6B6760;
+    --faint: #C8C3BB;
+    --accent: #8B6F47;
+    --accent-light: #D4B896;
+    --blue: #3B5F8A;
+    --green: #3A6B52;
+    --red: #8B3A3A;
+    --red-light: #F2E8E8;
+    --amber-light: #F5EDDF;
+    --green-light: #E8F0EB;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--cream);
+    color: var(--charcoal);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  .hero {
+    background: var(--charcoal);
+    padding: 60px 48px 52px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: 
+      radial-gradient(ellipse at 80% 20%, rgba(139,111,71,0.18) 0%, transparent 55%),
+      radial-gradient(ellipse at 10% 90%, rgba(59,95,138,0.12) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    margin-bottom: 16px;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 300;
+    color: #F7F3EC;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .hero-title em { font-style: italic; color: var(--accent-light); }
+  .hero-sub {
+    font-size: 13px;
+    color: rgba(247,243,236,0.5);
+    letter-spacing: 0.03em;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 32px;
+    margin-top: 32px;
+    padding-top: 28px;
+    border-top: 0.5px solid rgba(247,243,236,0.12);
+    flex-wrap: wrap;
+  }
+  .hero-stat { }
+  .hero-stat-label {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(247,243,236,0.35);
+    margin-bottom: 4px;
+  }
+  .hero-stat-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(247,243,236,0.8);
+  }
+
+  /* NAV */
+  .nav {
+    position: sticky;
+    top: 0;
+    background: rgba(247,243,236,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 0.5px solid var(--faint);
+    z-index: 100;
+    display: flex;
+    gap: 0;
+    padding: 0 48px;
+  }
+  .nav-btn {
+    padding: 14px 20px;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .nav-btn:hover { color: var(--charcoal); }
+  .nav-btn.active { color: var(--charcoal); border-bottom-color: var(--accent); font-weight: 500; }
+
+  /* MAIN */
+  .main { max-width: 860px; margin: 0 auto; padding: 48px 48px 80px; }
+
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* SECTION HEADER */
+  .section-header {
+    margin-bottom: 36px;
+    padding-bottom: 24px;
+    border-bottom: 0.5px solid var(--faint);
+  }
+  .section-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 300;
+    line-height: 1.1;
+  }
+  .section-title em { font-style: italic; }
+  .section-desc {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 8px;
+  }
+
+  /* DAY CARDS */
+  .day { margin-bottom: 32px; }
+  .day-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .day-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .day-date {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .day-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 2px;
+  }
+  .day-name em { font-style: italic; color: var(--accent); }
+
+  .day-body {
+    background: var(--warm-white);
+    border: 0.5px solid var(--faint);
+    border-radius: 12px;
+    padding: 24px 28px;
+  }
+
+  /* ITEMS */
+  .items { display: flex; flex-direction: column; gap: 0; }
+  .item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 10px 0;
+    border-bottom: 0.5px solid rgba(200,195,187,0.4);
+  }
+  .item:last-child { border-bottom: none; padding-bottom: 0; }
+  .item:first-child { padding-top: 0; }
+  .item-icon { font-size: 14px; min-width: 20px; margin-top: 2px; }
+  .item-text { font-size: 14px; line-height: 1.6; color: var(--charcoal); flex: 1; }
+  .item-text strong { font-weight: 500; }
+  .item-text em { color: var(--muted); font-style: normal; font-size: 13px; }
+
+  /* BADGES */
+  .badge {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 3px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .badge-urgent { background: var(--red-light); color: var(--red); }
+  .badge-note { background: var(--amber-light); color: #7A5C1E; }
+  .badge-tip { background: var(--green-light); color: var(--green); }
+  .badge-booked { background: #E8F0EB; color: #2E6644; }
+
+  /* DIVIDER */
+  .inner-divider {
+    border: none;
+    border-top: 0.5px solid var(--faint);
+    margin: 18px 0 14px;
+  }
+  .inner-label {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  /* RESTAURANT CARDS */
+  .rests { display: flex; flex-direction: column; gap: 8px; }
+  .rest {
+    background: var(--cream);
+    border: 0.5px solid var(--faint);
+    border-radius: 8px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .rest-body { flex: 1; }
+  .rest-name { font-size: 13px; font-weight: 500; color: var(--charcoal); margin-bottom: 2px; }
+  .rest-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+  /* BOOKING SECTION */
+  .booking-tier { margin-bottom: 28px; }
+  .booking-tier-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 0.5px solid var(--faint);
+  }
+  .tier-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .tier-title {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .checklist { display: flex; flex-direction: column; gap: 0; }
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 11px 0;
+    border-bottom: 0.5px solid rgba(200,195,187,0.35);
+  }
+  .check-item:last-child { border-bottom: none; }
+  .check-box {
+    width: 16px;
+    height: 16px;
+    border: 1px solid var(--faint);
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    cursor: pointer;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+  }
+  .check-box.checked {
+    background: var(--charcoal);
+    border-color: var(--charcoal);
+  }
+  .check-box.checked::after {
+    content: '';
+    width: 8px;
+    height: 5px;
+    border-left: 1.5px solid white;
+    border-bottom: 1.5px solid white;
+    transform: rotate(-45deg) translate(1px, -1px);
+  }
+  .check-text { font-size: 13px; line-height: 1.6; flex: 1; }
+  .check-text strong { font-weight: 500; }
+  .check-text.done { text-decoration: line-through; color: var(--muted); }
+
+  /* PRINT */
+  @media print {
+    .nav { display: none; }
+    .section { display: block !important; }
+    .main { padding: 24px; }
+    .hero { padding: 40px; }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    .hero { padding: 40px 24px 36px; }
+    .hero-title { font-size: 36px; }
+    .nav { padding: 0 16px; overflow-x: auto; }
+    .main { padding: 32px 20px 60px; }
+    .day-body { padding: 18px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-eyebrow">Trip Itinerary</div>
+  <div class="hero-title">South of <em>France</em></div>
+  <div class="hero-sub">Ryan · Annie · Matt · Allie &nbsp;·&nbsp; June 12–21, 2025</div>
+  <div class="hero-meta">
+    <div class="hero-stat">
+      <div class="hero-stat-label">First stop</div>
+      <div class="hero-stat-value">Menton</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-label">Second stop</div>
+      <div class="hero-stat-value">Hyères</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-label">Occasion</div>
+      <div class="hero-stat-value">Olivia's Wedding</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-label">Venue</div>
+      <div class="hero-stat-value">Château Carquiranne</div>
+    </div>
+  </div>
+</div>
+
+<nav class="nav">
+  <button class="nav-btn active" onclick="showSection('menton', this)">Menton</button>
+  <button class="nav-btn" onclick="showSection('transit', this)">Transit</button>
+  <button class="nav-btn" onclick="showSection('hyeres', this)">Hyères</button>
+  <button class="nav-btn" onclick="showSection('booking', this)">Booking Checklist</button>
+</nav>
+
+<div class="main">
+
+  <!-- MENTON -->
+  <div id="menton" class="section active">
+    <div class="section-header">
+      <div class="section-eyebrow">June 13–16</div>
+      <div class="section-title">Menton, <em>Côte d'Azur</em></div>
+      <div class="section-desc">Four nights at Villa Genesis · Franco-Italian border town, old town, beaches, day trips east and west</div>
+    </div>
+
+    <!-- SAT JUN 13 -->
+    <div class="day">
+      <div class="day-label">
+        <div class="day-dot" style="background:var(--blue)"></div>
+        <div class="day-date">Saturday, June 13</div>
+      </div>
+      <div class="day-name">Arrival <em>& first look</em></div>
+      <div class="day-body">
+        <div class="items">
+          <div class="item"><span class="item-icon">✈️</span><div class="item-text">Land Nice (NCE) ~8:10am after overnight flight. Pick up rental car, drive to Menton (~45 min).</div></div>
+          <div class="item"><span class="item-icon">🏨</span><div class="item-text"><strong>Villa Genesis</strong> — 7 Ave de la Madone, Menton. Check-in officially 3pm — request early check-in in advance. Confirmation #H-86QPXRXRRKB5. <span class="badge badge-note">Request early check-in</span></div></div>
+          <div class="item"><span class="item-icon">🚶</span><div class="item-text">Explore the Vieille Ville — narrow baroque lanes, colorful facades, the market square near the Basilique Saint-Michel.</div></div>
+          <div class="item"><span class="item-icon">🌊</span><div class="item-text">Stroll Promenade du Soleil and the Garavan harbour. Get oriented, shake off the flight.</div></div>
+        </div>
+        <hr class="inner-divider">
+        <div class="inner-label">Dinner — confirmed reservation</div>
+        <div class="rests">
+          <div class="rest"><span>⭐</span><div class="rest-body"><div class="rest-name">Mirazur &nbsp;<span class="badge badge-booked">Booked · 7:45pm</span></div><div class="rest-desc">Chef Mauro Colagreco — 3 Michelin stars, formerly #1 restaurant in the world. Garden-to-table tasting menu with riviera views. <strong>15-day cancellation policy.</strong> 30 Avenue Aristide-Briand, Menton.</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUN JUN 14 -->
+    <div class="day">
+      <div class="day-label">
+        <div class="day-dot" style="background:var(--blue)"></div>
+        <div class="day-date">Sunday, June 14</div>
+      </div>
+      <div class="day-name">GR52 <em>Hike Day</em></div>
+      <div class="day-body">
+        <div class="items">
+          <div class="item"><span class="item-icon">🥾</span><div class="item-text"><strong>GR52: Castellar → Plan du Lion</strong> — challenging morning climb, 2.5–3 hrs, panoramic views spanning France, Monaco, and Italy. Well-marked trail. Early start recommended to beat the heat.</div></div>
+          <div class="item"><span class="item-icon">🌿</span><div class="item-text"><strong>Afternoon option A:</strong> Jardin Botanique Val Rahmeh — lush tropical botanical garden a short walk from the beach. Free on the first Sunday of the month. <span class="badge badge-tip">Free entry</span></div></div>
+          <div class="item"><span class="item-icon">🏖️</span><div class="item-text"><strong>Afternoon option B:</strong> Recover on Plage des Sablettes or Plage de la Roya — both walkable from the old town.</div></div>
+        </div>
+        <hr class="inner-divider">
+        <div class="inner-label">Dinner — confirmed reservation</div>
+        <div class="rests">
+          <div class="rest"><span>🍽️</span><div class="rest-body"><div class="rest-name">Les Enfants Terribles &nbsp;<span class="badge badge-booked">Booked · 7:30pm</span></div><div class="rest-desc">On Quai Bonaparte by the Jean Cocteau Museum. Mediterranean fish and seafood, colorful presentation, sea views from the terrace. 1 Quai Bonaparte, Menton.</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MON JUN 15 -->
+    <div class="day">
+      <div class="day-label">
+        <div class="day-dot" style="background:var(--blue)"></div>
+        <div class="day-date">Monday, June 15</div>
+      </div>
+      <div class="day-name">Èze <em>& Monaco</em></div>
+      <div class="day-body">
+        <div class="items">
+          <div class="item"><span class="item-icon">🏔️</span><div class="item-text"><strong>Morning — Èze</strong> (30 min drive): Medieval village perched at 429m. Take the Nietzsche Path up from Èze-sur-Mer for the best approach — steep but spectacular. Allow 2–3 hours to explore. Very touristy but worth it.</div></div>
+          <div class="item"><span class="item-icon">🍽️</span><div class="item-text">Lunch in Èze — Château Eza or Nid d'Aigle both have dramatic cliffside terraces.</div></div>
+          <div class="item"><span class="item-icon">🎰</span><div class="item-text"><strong>Afternoon/Evening — Monaco</strong> (20 min from Èze): Casino square, the harbour yachts, Prince's Palace, F1 circuit streets. A few hours is plenty. Drinks at a harbour bar before heading back.</div></div>
+        </div>
+        <hr class="inner-divider">
+        <div class="inner-label">Dinner — confirmed reservation (Monaco)</div>
+        <div class="rests">
+          <div class="rest"><span>🍽️</span><div class="rest-body"><div class="rest-name">Maya Bay &nbsp;<span class="badge badge-booked">Booked · 7:00pm</span></div><div class="rest-desc">Michelin-listed Thai-influenced restaurant in the heart of Monaco. Excellent atmosphere, great terrace, and a fun change of pace after a full day exploring the Principality. Stay in Monaco for the evening — no need to drive back to Menton for dinner.</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TUE JUN 16 -->
+    <div class="day">
+      <div class="day-label">
+        <div class="day-dot" style="background:var(--blue)"></div>
+        <div class="day-date">Tuesday, June 16</div>
+      </div>
+      <div class="day-name">Cap Ferrat <em>& coastal walk</em></div>
+      <div class="day-body">
+        <div class="items">
+          <div class="item"><span class="item-icon">🚶</span><div class="item-text"><strong>Cap Ferrat</strong> — walk the 10km coastal path ringing the peninsula. Spectacular Belle Époque villas, rocky coves, turquoise water. One of the great free walks on the Riviera.</div></div>
+          <div class="item"><span class="item-icon">🍽️</span><div class="item-text"><strong>Lunch at Four Seasons Grand-Hôtel du Cap-Ferrat</strong> — poolside terrace. Outstanding food, legendary people-watching, and not as punishing at lunch as you'd expect. Make a reservation. <span class="badge badge-urgent">Reserve lunch</span></div></div>
+          <div class="item"><span class="item-icon">🚂</span><div class="item-text"><em>Tip: the local train from Menton runs cheaply and frequently to Monaco, Cap Ferrat, and Nice. Consider leaving the car and going stress-free.</em></div></div>
+        </div>
+        <hr class="inner-divider">
+        <div class="inner-label">Dinner — confirmed reservation</div>
+        <div class="rests">
+          <div class="rest"><span>🍽️</span><div class="rest-body"><div class="rest-name">Le Bistrot des Jardins &nbsp;<span class="badge badge-booked">Booked · 7:30pm</span></div><div class="rest-desc">Villa garden terrace on Jardin Biovès. Michelin guide-listed for over a decade. Provençal and Mediterranean classics — braised lamb, grilled John Dory, excellent wine list. 14 Avenue Boyer, Menton.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRANSIT -->
+  <div id="transit" class="section">
+    <div class="section-header">
+      <div class="section-eyebrow">June 17</div>
+      <div class="section-title">Transit Day — <em>Saint-Tropez</em></div>
+      <div class="section-desc">Menton to Hyères via the coast · ~3 hrs driving · Saint-Tropez stop en route</div>
+    </div>
+
+    <div class="day">
+      <div class="day-label">
+        <div class="day-dot" style="background:var(--accent)"></div>
+        <div class="day-date">Wednesday, June 17</div>
+      </div>
+      <div class="day-name">Drive West <em>& Saint-Tropez</em></div>
+      <div class="day-body">
+        <div class="items">
+          <div class="item"><span class="item-icon">🚗</span><div class="item-text">Drive from Menton to Hyères via A8 or the Corniche — approximately 2.5–3 hours without stops. Leave early to make the most of Saint-Tropez.</div></div>
+          <div class="item"><span class="item-icon">⛵</span><div class="item-text"><strong>Saint-Tropez — all four of you:</strong> Park on the edge of town and walk in. The port is the heart of it — yachts, cafés, people-watching. Allow a full afternoon.</div></div>
+          <div class="item"><span class="item-icon">🚶</span><div class="item-text">Explore La Ponche, the old fishermen's quarter — narrow cobblestone lanes, quieter than the port, great for wandering. Citadelle de Saint-Tropez has sweeping views over the bay.</div></div>
+          <div class="item"><span class="item-icon">☕</span><div class="item-text">Place des Lices for a coffee or pastis under the plane trees — the classic Saint-Tropez square, pétanque optional.</div></div>
+          <div class="item"><span class="item-icon">🏨</span><div class="item-text">Continue to Hyères (~1 hr) and check in — confirm accommodation near Carqueiranne village for easy access to the château.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HYERES -->
+  <div id="hyeres" class="section">
+    <div class="section-header">
+      <div class="section-eyebrow">June 18–21</div>
+      <div class="section-title">Hyères <em>& the Wedding</em></div>
+      <div class="section-desc">Château Carquiranne · Îles d'Or · Golf · Porquerolles</div>
+    </div>
+
+    <!-- THU JUN 18 -->
+    <div class="day">
+      <div class="day-label">
+        <div class="day-dot" style="background:var(--green)"></div>
+        <div class="day-date">Thursday, June 18</div>
+      </div>
+      <div class="day-name">Split Day <em>& Welcome Party</em></div>
+      <div class="day-body">
+        <div class="inner-label">Matt & Allie — Boat day (wedding)</div>
+        <div class="items">
+          <div class="item"><span class="item-icon">⛵</span><div class="item-text">Wedding boat day — details TBD with Olivia's group.</div></div>
+        </div>
+        <hr class="inner-divider">
+        <div class="inner-label">Ryan & Annie — Golf</div>
+        <div class="items">
+          <div class="item"><span class="item-icon">⛳</span><div class="item-text"><strong>Golf de Valcros</strong> (La Londe-les-Maures, ~20 min): Scenic 18-hole course in the hills with great views and well-maintained greens. Carts strongly recommended — hilly terrain, hot in June. <span class="badge badge-urgent">Book tee time</span></div></div>
+          <div class="item"><span class="item-icon">🍽️</span><div class="item-text">Lunch at the Valcros clubhouse — recent reviews call the service "simply impeccable."</div></div>
+        </div>
+        <hr class="inner-divider">
+        <div class="inner-label">All four — Evening</div>
+        <div class="items">
+          <div class="item"><span class="item-icon">🍷</span><div class="item-text"><strong>7:00pm — Optional vineyard tour & wine tasting</strong> at Château Carquiranne. <span class="badge badge-urgent">RSVP required</span></div></div>
+          <div class="item"><span class="item-icon">🎉</span><div class="item-text"><strong>7:30pm — Olivia's welcome party</strong> — dinner & drinks at Château Carquiranne.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FRI JUN 19 -->
+    <div class="day">
+      <div class="day-label">
+        <div class="day-dot" style="background:var(--green)"></div>
+        <div class="day-date">Friday, June 19</div>
+      </div>
+      <div class="day-name">Free Day — <em>Pick Your Adventure</em></div>
+      <div class="day-body">
+        <div class="inner-label" style="margin-top:0">Allie may have rehearsal dinner — confirm with her. Options for the group:</div>
+        <div class="items">
+          <div class="item"><span class="item-icon">🏝️</span><div class="item-text"><strong>Option A — Île de Porquerolles:</strong> Car-free island, white sand beaches, great snorkelling, and national park trails. ~30 min ferry from La Tour Fondue on the Giens peninsula. The most scenic day-trip from Hyères — best done as a full day. <span class="badge badge-note">Check ferry times</span></div></div>
+          <div class="item"><span class="item-icon">🥾</span><div class="item-text"><strong>Option B — Gorge du Verdon:</strong> The "Grand Canyon of Europe" — brilliant turquoise water, dramatic limestone cliffs. ~1.5 hrs from Hyères. Kayak or canoe on the lake, or hike the Sentier Martel along the gorge rim. A full-day commitment but unforgettable.</div></div>
+          <div class="item"><span class="item-icon">🏖️</span><div class="item-text"><strong>Option C — Beach & Bormes-les-Mimosas:</strong> Morning at Plage de l'Almanarre or Plage du Pellegrin (wilder, more remote), then drive 30 min to Bormes-les-Mimosas — a medieval hilltop village draped in bougainvillea. Lunch in the village square.</div></div>
+          <div class="item"><span class="item-icon">🏙️</span><div class="item-text"><strong>Option D — Hyères Vieille Ville + wine:</strong> Leisurely morning exploring Place Massillon and the medieval streets, then an afternoon wine tasting at Château du Galoupet or Château Sainte Marguerite — both in the hills above Hyères and well-regarded Provence rosé producers.</div></div>
+        </div>
+        <hr class="inner-divider">
+        <div class="inner-label">Dinner — last dinner before wedding</div>
+        <div class="rests">
+          <div class="rest"><span>🍽️</span><div class="rest-body"><div class="rest-name">La Petite Galinette</div><div class="rest-desc">Top-rated Provençal bistro — the locals' favourite. Fresh seasonal produce, refined cuisine, terrace seating. Reserve ahead.</div></div></div>
+          <div class="rest"><span>🍽️</span><div class="rest-body"><div class="rest-name">Restaurant Le Pothuau</div><div class="rest-desc">Traditional fish on the small port of Les Salins — bouillabaisse, shellfish, flambéed gambas. Authentic and scenic. Book ahead in summer.</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SAT JUN 20 -->
+    <div class="day">
+      <div class="day-label">
+        <div class="day-dot" style="background:var(--green)"></div>
+        <div class="day-date">Saturday, June 20</div>
+      </div>
+      <div class="day-name">Wedding Day <em>at Château Carquiranne</em></div>
+      <div class="day-body">
+        <div class="items">
+          <div class="item"><span class="item-icon">🌅</span><div class="item-text"><strong>Daytime (Ryan & Annie while Allie preps):</strong> Beach morning at Plage de l'Almanarre — flat, shallow, beautiful — or drive 30 min to Bormes-les-Mimosas, a stunning medieval flower village worth the short detour.</div></div>
+          <div class="item"><span class="item-icon">☕</span><div class="item-text">Casual lunch near Hyères — Brasserie des Iles at the port, or L'Abri-Cotier on Ayguade beach for a laid-back waterside meal.</div></div>
+          <div class="item"><span class="item-icon">💒</span><div class="item-text"><strong>5:00pm — Wedding at Château Carquiranne.</strong> Build in plenty of time to get ready beforehand.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUN JUN 21 -->
+    <div class="day">
+      <div class="day-label">
+        <div class="day-dot" style="background:var(--green)"></div>
+        <div class="day-date">Sunday, June 21</div>
+      </div>
+      <div class="day-name">Departure <em>& Father's Day</em></div>
+      <div class="day-body">
+        <div class="items">
+          <div class="item"><span class="item-icon">⏰</span><div class="item-text">Leave accommodation ~6:15am for the ~1.5 hr drive to Nice airport (NCE). Arrive by 8:10am.</div></div>
+          <div class="item"><span class="item-icon">✈️</span><div class="item-text"><strong>AA #747</strong> — NCE 10:10am → PHL 1:15pm (local time).</div></div>
+          <div class="item"><span class="item-icon">👨</span><div class="item-text">Father's Day — remember to call home from the road!</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOOKING CHECKLIST -->
+  <div id="booking" class="section">
+    <div class="section-header">
+      <div class="section-eyebrow">Pre-departure</div>
+      <div class="section-title">Booking <em>Checklist</em></div>
+      <div class="section-desc">Click items to mark them done · Ordered by urgency</div>
+    </div>
+
+    <div class="booking-tier">
+      <div class="booking-tier-header">
+        <div class="tier-indicator" style="background:var(--red)"></div>
+        <div class="tier-title" style="color:var(--red)">Book immediately</div>
+      </div>
+      <div class="checklist">
+        <div class="check-item">
+          <div class="check-box checked" onclick="toggleCheck(this)"></div>
+          <div class="check-text done"><strong>Mirazur — Sat Jun 13, 7:45pm</strong> ✓ Booked. <strong style="color:var(--red);text-decoration:none">⚠ 15-day cancellation policy — deadline May 29th.</strong></div>
+        </div>
+        <div class="check-item">
+          <div class="check-box" onclick="toggleCheck(this)"></div>
+          <div class="check-text"><strong>Four Seasons Cap-Ferrat — lunch reservation (Tue Jun 16)</strong> — Poolside terrace books fast in summer. Reserve via the hotel website or call directly.</div>
+        </div>
+        <div class="check-item">
+          <div class="check-box" onclick="toggleCheck(this)"></div>
+          <div class="check-text"><strong>Villa Genesis early check-in request</strong> — Email the hotel now requesting pre-3pm arrival on June 13 given overnight flight. Reference confirmation #H-86QPXRXRRKB5.</div>
+        </div>
+        <div class="check-item">
+          <div class="check-box" onclick="toggleCheck(this)"></div>
+          <div class="check-text"><strong>Château Carquiranne welcome party RSVP (Thu Jun 18)</strong> — Confirm attendance and optional vineyard tour at 7:00pm.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="booking-tier">
+      <div class="booking-tier-header">
+        <div class="tier-indicator" style="background:#BA7517"></div>
+        <div class="tier-title" style="color:#BA7517">Book 2–4 weeks out</div>
+      </div>
+      <div class="checklist">
+        <div class="check-item">
+          <div class="check-box" onclick="toggleCheck(this)"></div>
+          <div class="check-text"><strong>Golf de Valcros tee time (Thu Jun 18)</strong> — Ryan & Annie while Matt & Allie are on the boat. Call +33 4 94 66 81 02 or book online. Can typically be arranged 2–4 weeks ahead.</div>
+        </div>
+        <div class="check-item">
+          <div class="check-box" onclick="toggleCheck(this)"></div>
+          <div class="check-text"><strong>Hyères accommodation</strong> — Confirm you have lodging for Jun 17–21 near Carqueiranne.</div>
+        </div>
+        <div class="check-item">
+          <div class="check-box checked" onclick="toggleCheck(this)"></div>
+          <div class="check-text done"><strong>Les Enfants Terribles — Sun Jun 14, 7:30pm</strong> ✓ Booked.</div>
+        </div>
+        <div class="check-item">
+          <div class="check-box checked" onclick="toggleCheck(this)"></div>
+          <div class="check-text done"><strong>Le Galion — Mon Jun 15, 7:30pm</strong> ✓ Booked.</div>
+        </div>
+        <div class="check-item">
+          <div class="check-box checked" onclick="toggleCheck(this)"></div>
+          <div class="check-text done"><strong>Le Bistrot des Jardins — Tue Jun 16, 7:30pm</strong> ✓ Booked.</div>
+        </div>
+        <div class="check-item">
+          <div class="check-box" onclick="toggleCheck(this)"></div>
+          <div class="check-text"><strong>Decide on Friday (Jun 19) activity</strong> — Top options: Île de Porquerolles (ferry from La Tour Fondue, book tickets), Gorge du Verdon day trip, beach + Bormes-les-Mimosas, or Hyères wine tasting. Confirm once you know Allie's rehearsal dinner situation.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="booking-tier">
+      <div class="booking-tier-header">
+        <div class="tier-indicator" style="background:var(--green)"></div>
+        <div class="tier-title" style="color:var(--green)">Before you leave</div>
+      </div>
+      <div class="checklist">
+        <div class="check-item">
+          <div class="check-box" onclick="toggleCheck(this)"></div>
+          <div class="check-text"><strong>Rental car</strong> — Confirm size (4 people + luggage), NCE pick-up, and drop-off location (Nice or Hyères area on Jun 21).</div>
+        </div>
+        <div class="check-item">
+          <div class="check-box" onclick="toggleCheck(this)"></div>
+          <div class="check-text"><strong>June 17 departure time</strong> — Leave Menton early enough to spend a good chunk of the afternoon in Saint-Tropez before continuing to Hyères.</div>
+        </div>
+        <div class="check-item">
+          <div class="check-box" onclick="toggleCheck(this)"></div>
+          <div class="check-text"><strong>Check Olivia's recommendations doc</strong> — She likely has local intel on restaurants and things to do near Carqueiranne.</div>
+        </div>
+        <div class="check-item">
+          <div class="check-box" onclick="toggleCheck(this)"></div>
+          <div class="check-text"><strong>Notify credit cards</strong> of France travel dates. Confirm no foreign transaction fees on the cards you plan to use.</div>
+        </div>
+        <div class="check-item">
+          <div class="check-box" onclick="toggleCheck(this)"></div>
+          <div class="check-text"><strong>Download offline maps</strong> for Menton and Hyères regions — cell coverage in gorges and rural roads can be spotty.</div>
+        </div>
+      </div>
+    </div>
+    <div class="booking-tier">
+      <div class="booking-tier-header">
+        <div class="tier-indicator" style="background:var(--muted)"></div>
+        <div class="tier-title" style="color:var(--muted)">Extra reservations — cancel if not needed</div>
+      </div>
+      <div class="checklist">
+        <div class="check-item">
+          <div class="check-box" onclick="toggleCheck(this)"></div>
+          <div class="check-text"><strong>JR Bistronomie — Sat Jun 13, 7:30pm</strong> — Backup for arrival night if Mirazur doesn't work out. Cancel if not needed. 11 Rue Trenca, Menton.</div>
+        </div>
+        <div class="check-item">
+          <div class="check-box" onclick="toggleCheck(this)"></div>
+          <div class="check-text"><strong>Le Galion — Mon Jun 15, 7:30pm</strong> — Originally booked for Monday; replaced by Maya Bay in Monaco. Cancel this reservation.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+function showSection(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggleCheck(box) {
+  box.classList.toggle('checked');
+  const textEl = box.nextElementSibling;
+  textEl.classList.toggle('done', box.classList.contains('checked'));
+}
+</script>
+</body>
+</html>
